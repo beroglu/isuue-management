@@ -2,6 +2,7 @@ package com.beroglu.isuuemanagement.repo;
 
 import com.beroglu.isuuemanagement.entity.Issue;
 import com.beroglu.isuuemanagement.entity.Project;
+import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -20,5 +21,7 @@ public interface ProjectRepository extends JpaRepository <Project,Long> {
 
     Page<Project> findAll(Pageable pageable);
     List<Project> findAll(Sort sort);
+    Project getByProjectCode(String projectCode);
+    Optional<Project> findByProjectCode(String projectCode);
 }
 
